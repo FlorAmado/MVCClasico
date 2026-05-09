@@ -6,8 +6,9 @@ WORKDIR /src
 COPY . .
 
 # Restauramos dependencias y compilamos el proyecto
-RUN dotnet restore "MVCClasico\MVCClasico.csproj"
-RUN dotnet publish "MVCClasico\MVCClasico.csproj" -c Release -o /app/publish /p:UseAppHost=false
+# Restauramos dependencias y compilamos el proyecto
+RUN dotnet restore "MVCClasico/MVCClasico.csproj"
+RUN dotnet publish "MVCClasico/MVCClasico.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # 2. Etapa de ejecución (Usa una imagen ligera solo para correr la app)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
